@@ -1,0 +1,2 @@
+root: C:\Users\Usuario\Documents\IV Semestre\ARQUITECTURA\Asistencia_de_clase\nvm
+path: C:\nvm4w\nodejs

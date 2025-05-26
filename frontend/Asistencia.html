@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Asistencia</title>
+    <link rel="stylesheet" href="Estilo.css">
+</head>
+<body class="modulo-asistencia">
+<div class="container">
+    <!-- Imagen como encabezado (banner superior) -->
+    <div class="header-img"></div>
+
+    <h1>Gestión de Asistencia</h1>
+
+    <!-- Crear Lista de Asistencia Vacía -->
+    <div class="card">
+        <h2>Crear Lista de Asistencia Vacía</h2>
+        <form>
+            <input type="text" placeholder="Código de asignatura">
+            <input type="text" placeholder="Semestre">
+            <input type="text" placeholder="Sección">
+            <input type="date">
+            <input type="time">
+            <button type="submit">Crear Lista</button>
+        </form>
+    </div>
+
+    <!-- Llenar Asistencia -->
+    <div class="card">
+        <h2>Llenar Asistencia</h2>
+        <form>
+            <input type="text" placeholder="Código de asignatura">
+            <input type="text" placeholder="Semestre">
+            <input type="text" placeholder="Sección">
+            <input type="date">
+            <input type="time">
+            <select>
+                <option>Tipo de documento</option>
+                <option>C.C.</option>
+                <option>T.I.</option>
+            </select>
+            <input type="text" placeholder="Número de documento">
+            <select>
+                <option>Estado</option>
+                <option>Asistió</option>
+                <option>No asistió</option>
+            </select>
+            <button type="submit">Registrar Asistencia</button>
+        </form>
+    </div>
+
+    <!-- Modificar Asistencia -->
+    <div class="card">
+        <h2>Modificar Asistencia</h2>
+        <form>
+            <input type="text" placeholder="Código de asignatura">
+            <input type="text" placeholder="Semestre">
+            <input type="text" placeholder="Sección">
+            <input type="date">
+            <input type="time">
+            <select>
+                <option>Tipo de documento</option>
+                <option>C.C.</option>
+                <option>T.I.</option>
+            </select>
+            <input type="text" placeholder="Número de documento">
+            <select>
+                <option>Nuevo estado</option>
+                <option>Asistió</option>
+                <option>No asistió</option>
+            </select>
+            <button type="submit">Modificar Asistencia</button>
+        </form>
+    </div>
+
+    <!-- Listar Asistencias Detalladas -->
+    <div class="card">
+        <h2>Listar Asistencias Detalladas</h2>
+        <form>
+            <button type="button">Mostrar Asistencias</button>
+        </form>
+    </div>
+    <button class="btn-volver" onclick="window.location.href='../index.html'">Volver al inicio</button>
+
+</div>
+</body>
+</html>
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - Sistema de Asistencia</title>
+    <style>
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          margin: 0;
+          padding: 0;
+          height: 100vh;
+          background: url("Imagenes/BannerUbate.png") no-repeat center center fixed;
+          background-size: cover;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        h1 {
+          margin-top: 50px;
+          font-size: 3.5em;
+          color: white;
+          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+          text-align: center;
+        }
+
+        .iconos {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          gap: 50px;
+          max-width: 1000px;
+          margin: 60px auto;
+          padding: 20px;
+          justify-items: center;
+        }
+
+        .icono {
+          background-color: rgba(255, 255, 255, 0.95);
+          border-radius: 20px;
+          padding: 30px;
+          box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+          transition: transform 0.3s, box-shadow 0.3s;
+          text-align: center;
+          width: 180px;
+          height: 180px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .icono:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+        }
+
+        .icono img {
+          width: 90px;
+          height: 90px;
+          object-fit: contain;
+          margin: 0 auto 15px;
+        }
+
+        .icono span {
+          font-weight: bold;
+          color: #333;
+          font-size: 1.2em;
+        }
+
+        a {
+          text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<h1>Bienvenido al Sistema de Asistencia</h1>
+
+<div class="iconos">
+    <a href="departamento.html" class="icono">
+        <img src="Imagenes/departamento.png" alt="Departamento">
+        <span>Departamento</span>
+    </a>
+    <a href="Estudiante.html" class="icono">
+        <img src="Imagenes/Estudiante.png" alt="Estudiante">
+        <span>Estudiante</span>
+    </a>
+    <a href="Asignatura.html" class="icono">
+        <img src="Imagenes/Asignaturas.png" alt="Asignaturas">
+        <span>Asignaturas</span>
+    </a>
+    <a href="Asistencia.html" class="icono">
+        <img src="Imagenes/Asistencia.png" alt="Asistencia">
+        <span>Asistencia</span>
+    </a>
+</div>
+</body>
+</html>
