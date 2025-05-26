@@ -1,15 +1,12 @@
-const express = require("express");
-const { builder } = require("@netlify/functions");
-const cors = require("cors");
-const estudiantesRoutes = require("./Backend/routes/estudiantesRoutes");
+const express = require('express');
+const serverless = require('@netlify/functions');
+const path = require('path');
 
 const app = express();
-
-app.use(cors());
 app.use(express.json());
 
-// Ruta base
-app.use("/.netlify/functions/estudiante", estudiantesRoutes);
+const rutasEstudiante = require(path.resolve(__dirname, '../../Backend/routes/estudiantesRoutes'));
 
+app.use('/.netlify/functions/estudiante', rutasEstudiante);
 
-exports.handler = builder(app);
+module.exports.handler = serverless(app);

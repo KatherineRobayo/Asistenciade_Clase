@@ -1,36 +1,12 @@
-const admin = require("../../Backend/Controllers/firebaseAdmin");
+const express = require('express');
+const serverless = require('@netlify/functions');
+const path = require('path');
 
-exports.handler = async function(event, context) {
-    const firestore = admin.firestore();
+const app = express();
+app.use(express.json());
 
-    try {
-        if (event.httpMethod === 'GET') {
-            const doc = await firestore.collection('departamento').doc('info').get();
-            const nombre = doc.exists ? doc.data().nombre : "No encontrado";
-            return {
-                statusCode: 200,
-                body: JSON.stringify({ nombre }),
-            };
-        }
+const rutasDepartamento = require(path.resolve(__dirname, '../../Backend/routes/departamentoRoutes'));
 
-        if (event.httpMethod === 'POST') {
-            const body = JSON.parse(event.body);
-            const nuevoNombre = body.nombre;
-            await firestore.collection('departamento').doc('info').set({ nombre: nuevoNombre });
-            return {
-                statusCode: 200,
-                body: JSON.stringify({ mensaje: "Nombre modificado correctamente" }),
-            };
-        }
+app.use('/.netlify/functions/departamento', rutasDepartamento);
 
-        return {
-            statusCode: 405,
-            body: JSON.stringify({ error: "Método HTTP no permitido" }),
-        };
-    } catch (error) {
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: error.message }),
-        };
-    }
-};
+module.exports.handler = serverless(app);
