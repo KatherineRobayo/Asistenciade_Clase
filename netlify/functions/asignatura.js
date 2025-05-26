@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
-const asignaturasRoutes = require("../../routes/asignaturasRoutes");
+const asignaturasRoutes = require("./routes/asignaturasRoutes");
 
 app.use(cors());
 app.use(express.json());
