@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Asignaturas</title>
+    <link rel="stylesheet" href="Estilo.css">
+</head>
+<body class="modulo-asignatura">
+<div class="container">
+    <!-- Imagen como encabezado -->
+    <div class="header-img"></div>
+
+    <h1>Gestión de Asignaturas</h1>
+
+    <!-- Adicionar Asignatura -->
+    <div class="card">
+        <h2>Adicionar Asignatura</h2>
+        <form id="form-adicionar">
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <input type="text" id="codigo" placeholder="Código" required>
+            <input type="number" id="creditos" placeholder="Créditos" required>
+            <input type="text" id="seccion" placeholder="Sección" required>
+            <input type="text" id="semestre" placeholder="Semestre" required>
+            <button type="submit">Adicionar</button>
+        </form>
+        <div class="resultado" id="resultado-adicionar"></div>
+    </div>
+
+    <!-- Consultar Asignatura -->
+    <div class="card">
+        <h2>Consultar Asignatura</h2>
+        <form id="form-consultar">
+            <input type="text" id="codigo-consultar" placeholder="Código" required>
+            <input type="text" id="semestre-consultar" placeholder="Semestre" required>
+            <input type="text" id="seccion-consultar" placeholder="Sección" required>
+            <button type="submit">Consultar</button>
+        </form>
+        <div class="resultado" id="resultado-consultar"></div>
+    </div>
+
+    <!-- Modificar Asignatura -->
+    <div class="card">
+        <h2>Modificar Asignatura</h2>
+        <form id="form-modificar">
+            <input type="text" id="codigo-modificar" placeholder="Código" required>
+            <input type="text" id="semestre-modificar" placeholder="Semestre" required>
+            <input type="text" id="seccion-modificar" placeholder="Sección" required>
+            <input type="text" id="nuevo-nombre" placeholder="Nuevo nombre" required>
+            <input type="number" id="nuevos-creditos" placeholder="Nuevos créditos" required>
+            <button type="submit">Modificar</button>
+        </form>
+        <div class="resultado" id="resultado-modificar"></div>
+    </div>
+    <button class="btn-volver" onclick="window.location.href='../index.html'">Volver al inicio</button>
+
+</div>
+
+<script src="asignatura.js"></script>
+</body>
+</html>
+
+

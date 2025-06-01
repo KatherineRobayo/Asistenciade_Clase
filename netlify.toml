@@ -1,0 +1,13 @@
+[build]
+publish = "frontend"
+functions = "netlify/functions"
+
+[dev]
+publish = "frontend"
+functions = "netlify/functions"
+port = 8888
+
+[functions]
+
+external_node_modules = ["express", "firebase-admin", "cors", "dotenv"]
+node_bundler = "esbuild"
