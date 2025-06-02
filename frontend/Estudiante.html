@@ -55,6 +55,12 @@
             </select>
             <input type="text" id="numDocModificar" placeholder="Número actual de documento" required>
             <input type="text" id="nuevoNombre" placeholder="Nuevo nombre completo" required>
+            <select id="nuevoTipoDocumento" required>
+                <option value="">Nuevo tipo de documento</option>
+                <option value="CC">Cédula</option>
+                <option value="TI">Tarjeta de identidad</option>
+                <option value="CE">Cédula de extranjería</option>
+            </select>
             <button type="submit">Modificar</button>
         </form>
     </section>
@@ -71,6 +77,8 @@
             </select>
             <input type="text" id="numDocAsigReg" placeholder="Número de documento" required>
             <input type="text" id="codigoAsignaturaRegistro" placeholder="Código de asignatura" required>
+            <input type="text" id="semestreAsignturaRegistro" placeholder="Semestre" required>
+            <input type="text" id="seccionAsignaturaRegistro" placeholder="Sección" required>
             <button type="submit">Registrar en asignatura</button>
         </form>
         <div id="resultadoAsignaturaRegistro" class="resultado"></div>
@@ -81,6 +89,8 @@
         <h2>Consultar Estudiantes en Asignatura</h2>
         <form id="formConsultarAsignatura">
             <input type="text" id="codigoAsignaturaConsulta" placeholder="Código de asignatura" required>
+            <input type="text" id="SemestreAsignaturaConsulta" placeholder="Semestre" required>
+            <input type="text" id="SeccionAsignaturaConsulta" placeholder="Sección" required>
             <button type="submit">Consultar</button>
         </form>
         <div class="resultado">

@@ -1,4 +1,13 @@
 const URL = "/.netlify/functions/estudiante";
+function mostrarRespuesta(data) {
+  if (data.mensaje) {
+    alert(data.mensaje);
+  } else if (data.error) {
+    alert("Error: " + data.error);
+  } else {
+    alert("Respuesta desconocida del servidor.");
+  }
+}
 
 async function registrarEstudiante() {
   const nombre = document.getElementById("nombre").value;
@@ -13,7 +22,7 @@ async function registrarEstudiante() {
     });
 
     const data = await res.json();
-    alert(data.mensaje);
+    mostrarRespuesta(data);
   } catch (error) {
     alert("Error al registrar estudiante.");
   }
@@ -36,35 +45,38 @@ async function modificarEstudiante() {
   const tipoDocumento = document.getElementById("tipoDocModificar").value;
   const numeroDocumento = document.getElementById("numDocModificar").value;
   const nuevoNombre = document.getElementById("nuevoNombre").value;
+  const nuevoTipoDocumento = document.getElementById("nuevoTipoDocumento").value;
 
   try {
     const res = await fetch(`${URL}/modificar`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ tipoDocumento, numeroDocumento, nuevoNombre }),
+      body: JSON.stringify({ tipoDocumento, numeroDocumento, nuevoNombre,nuevoTipoDocumento }),
     });
 
     const data = await res.json();
-    alert(data.mensaje);
+    mostrarRespuesta(data);
   } catch (error) {
     alert("Error al modificar estudiante.");
   }
 }
 
 async function registrarEnAsignatura() {
-  const codigo = document.getElementById("codigoAsignaturaRegistro").value;
   const tipoDocumento = document.getElementById("tipoDocAsigReg").value;
   const numeroDocumento = document.getElementById("numDocAsigReg").value;
+  const codigo = document.getElementById("codigoAsignaturaRegistro").value;
+  const semestre = document.getElementById("semestreAsignaturaRegistro").value;
+  const seccion = document.getElementById("seccionAsignaturaRegistro").value;
 
   try {
     const res = await fetch(`${URL}/registrarAsignatura`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ codigo, tipoDocumento, numeroDocumento }),
+      body: JSON.stringify({ tipoDocumento, numeroDocumento, codigo, semestre, seccion }),
     });
 
     const data = await res.json();
-    alert(data.mensaje);
+    mostrarRespuesta(data);
   } catch (error) {
     alert("Error al registrar en asignatura.");
   }
@@ -72,9 +84,11 @@ async function registrarEnAsignatura() {
 
 async function consultarEstudiantesAsignatura() {
   const codigo = document.getElementById("codigoAsignaturaConsulta").value;
+  const semestre = document.getElementById("semestreAsignaturaConsulta").value;
+   const seccion = document.getElementById("seccionAsignaturaConsulta").value;
 
   try {
-    const res = await fetch(`${URL}/consultarAsignatura?codigo=${codigo}`);
+    const res = await fetch(`${URL}/consultarAsignatura?codigo=${codigo}&semestre=${semestre}&seccion=${seccion}`);
     const data = await res.json();
 
     const ul = document.getElementById("listaEstudiantesAsignatura");
