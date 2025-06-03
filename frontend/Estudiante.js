@@ -69,7 +69,7 @@ async function registrarEnAsignatura() {
   const seccion = document.getElementById("seccionAsignaturaRegistro").value;
 
   try {
-    const res = await fetch(`${URL}/registrarAsignatura`, {
+    const res = await fetch(`${URL}/registrar-en-asignatura`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ tipoDocumento, numeroDocumento, codigo, semestre, seccion }),
@@ -88,7 +88,7 @@ async function consultarEstudiantesAsignatura() {
    const seccion = document.getElementById("seccionAsignaturaConsulta").value;
 
   try {
-    const res = await fetch(`${URL}/consultarAsignatura?codigo=${codigo}&semestre=${semestre}&seccion=${seccion}`);
+    const res = await fetch(`${URL}/consultar-asignatura?codigo=${codigo}&semestre=${semestre}&seccion=${seccion}`);
     const data = await res.json();
 
     const ul = document.getElementById("listaEstudiantesAsignatura");
