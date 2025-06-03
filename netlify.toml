@@ -8,6 +8,5 @@ functions = "netlify/functions"
 port = 8888
 
 [functions]
-
-external_node_modules = ["express", "firebase-admin", "cors", "dotenv"]
 node_bundler = "esbuild"
+external_node_modules = ["express", "firebase-admin", "cors", "dotenv"]

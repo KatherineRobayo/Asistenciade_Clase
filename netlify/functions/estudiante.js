@@ -5,9 +5,11 @@ const path = require('path');
 const app = express();
 app.use(express.json());
 
+
 const estudianteRoutes = require("../../Backend/routes/estudiantesRoutes");
 
 
-app.use('/.netlify/functions/estudiante', rutasEstudiante);
+app.use('/.netlify/functions/estudiante', estudianteRoutes);
 
 module.exports.handler = serverless(app);
+
