@@ -6,7 +6,7 @@ const {
   modificarEstudianteController,
   registrarEnAsignaturaController,
   consultarEstudiantesAsignaturaController
-} = require("../controllers/estudiantesController");
+} = require("../Controllers/estudiantesController");
 
 // Ruta para registrar estudiante
 router.post("/registrar", registrarEstudianteController);

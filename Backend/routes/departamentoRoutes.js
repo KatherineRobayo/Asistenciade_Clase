@@ -3,7 +3,7 @@ const router = express.Router();
 const {
     consultarNombreDepartamento,
     modificarNombreDepartamento
-} = require('../controllers/departamentoController');
+} = require('../Controllers/departamentoController');
 
 router.get('/consultar', consultarNombreDepartamento);
 router.post('/modificar', modificarNombreDepartamento);

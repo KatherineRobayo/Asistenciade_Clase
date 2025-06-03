@@ -5,7 +5,7 @@ const {
   registrarAsistencia,
   modificarAsistencia,
   listarAsistencias,
-} = require("../controllers/asistenciaController");
+} = require("../Controllers/asistenciaController");
 
 router.post("/crear-lista", crearListaVacia);
 router.post("/registrar", registrarAsistencia);
