@@ -1,4 +1,4 @@
-const admin = require('./firebaseAdmin');
+const admin = require("./firebaseAdmin");
 const db = admin.firestore();
 
 exports.registrarEstudianteController = async (req, res) => {
@@ -13,7 +13,6 @@ exports.registrarEstudianteController = async (req, res) => {
   } catch (e) {
     console.error("ERROR al registrar estudiante:", e);
     res.status(500).json({ error: e.message || "Error desconocido" });
-
   }
 };
 
@@ -28,7 +27,6 @@ exports.consultarEstudianteController = async (req, res) => {
   } catch (e) {
     console.error("ERROR al consultar estudiante:", e);
     res.status(500).json({ error: e.message || "Error desconocido" });
-
   }
 };
 
@@ -45,7 +43,7 @@ exports.modificarEstudianteController = async (req, res) => {
 };
 
 exports.registrarEnAsignaturaController = async (req, res) => {
-  const { codigo, tipoDocumento, numeroDocumento } = req.body;
+  const { codigo, tipoDocumento, numeroDocumento, semestre, seccion } = req.body;
   try {
     const estudianteRef = db.collection("estudiantes").doc(`${tipoDocumento}-${numeroDocumento}`);
     const estudiante = await estudianteRef.get();
@@ -63,14 +61,18 @@ exports.registrarEnAsignaturaController = async (req, res) => {
     res.json({ mensaje: "Estudiante registrado en la asignatura" });
   } catch (e) {
     console.error("ERROR al registrar en asignatura:", e);
-   res.status(500).json({ error: e.message || "Error desconocido" });
+    res.status(500).json({ error: e.message || "Error desconocido" });
   }
 };
 
 exports.consultarEstudiantesAsignaturaController = async (req, res) => {
   const { codigo, semestre, seccion } = req.query;
   try {
-    const snapshot = await db.collection("asignaturas").doc(codigo).collection("estudiantes").get();
+    const snapshot = await db.collection("asignaturas")
+      .doc(`${codigo}-${semestre}-${seccion}`)
+      .collection("estudiantes")
+      .get();
+
     const estudiantes = snapshot.docs.map(doc => doc.data().nombre);
     res.json({ estudiantes });
   } catch (e) {
