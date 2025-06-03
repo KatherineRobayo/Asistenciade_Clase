@@ -54,8 +54,11 @@ exports.registrarEnAsignaturaController = async (req, res) => {
     }
 
     const nombre = estudiante.data().nombre;
-    await db.collection("asignaturas").doc(codigo).collection("estudiantes")
-      .doc(`${tipoDocumento}-${numeroDocumento}`).set({ nombre });
+    await db.collection("asignaturas")
+      .doc(`${codigo}-${semestre}-${seccion}`)
+      .collection("estudiantes")
+      .doc(`${tipoDocumento}-${numeroDocumento}`)
+      .set({ nombre });
 
     res.json({ mensaje: "Estudiante registrado en la asignatura" });
   } catch (e) {
@@ -65,7 +68,7 @@ exports.registrarEnAsignaturaController = async (req, res) => {
 };
 
 exports.consultarEstudiantesAsignaturaController = async (req, res) => {
-  const { codigo } = req.query;
+  const { codigo, semestre, seccion } = req.query;
   try {
     const snapshot = await db.collection("asignaturas").doc(codigo).collection("estudiantes").get();
     const estudiantes = snapshot.docs.map(doc => doc.data().nombre);
