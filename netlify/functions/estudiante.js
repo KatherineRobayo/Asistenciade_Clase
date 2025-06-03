@@ -5,7 +5,8 @@ const path = require('path');
 const app = express();
 app.use(express.json());
 
-const rutasEstudiante = require(path.resolve(__dirname, '../../Backend/routes/estudiantesRoutes'));
+const estudianteRoutes = require("../../Backend/routes/estudiantesRoutes");
+
 
 app.use('/.netlify/functions/estudiante', rutasEstudiante);
 
